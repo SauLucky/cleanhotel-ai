@@ -3,7 +3,7 @@
 Portal web desarrollado con Inteligencia Artificial Generativa para automatizar las cotizaciones de insumos de limpieza para hoteles a partir de solicitudes en lenguaje natural.
 
 ## Enlace Público en Producción
-[Abrir CleanHotel AI Cotizador B2B](https://azurewebsites.net)
+[Abrir CleanHotel AI Cotizador B2B](https://cleanhotel-saulobo.azurewebsites.net)
 
 ## Arquitectura de la Solución
 
