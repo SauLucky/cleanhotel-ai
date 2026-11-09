@@ -31,4 +31,4 @@ flowchart LR
 ![Cotización Generada](capturas/2-cotizacion-generada.png)
 
 ### 3. Despliegue en Azure App Service
-![Despliegue Azure](capturas/3-despliegue-azure.png)# cleanhotel-ai
+![Despliegue Azure](capturas/3-despliegue-azure.png)

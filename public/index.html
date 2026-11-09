@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanHotel AI | Cotizador B2B</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="no-print">
+    <div class="container">
+      <h1>CleanHotel AI</h1>
+      <p>Portal Inteligente de Cotizaciones B2B para Hotelería</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card form-section no-print">
+      <h2>Nueva Solicitud de Cotización</h2>
+      <form id="cotizadorForm">
+        <div class="form-group">
+          <label for="sucursal">Sucursal de Distribución:</label>
+          <select id="sucursal" required>
+            <option value="Norte (CDMX / EdoMex)">Norte (CDMX / Estado de México)</option>
+            <option value="Bajío (Querétaro / Guanajuato)">Bajío (Querétaro / Guanajuato)</option>
+            <option value="Occidente (Guadalajara)">Occidente (Guadalajara)</option>
+            <option value="Sureste (Cancún / Riviera Maya)" selected>Sureste (Cancún / Riviera Maya)</option>
+            <option value="Pacífico (Puerto Vallarta)">Pacífico (Puerto Vallarta)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pedido">Describe tu necesidad:</label>
+          <textarea id="pedido" rows="4" placeholder="Ej. Tengo un hotel de 150 habitaciones en Cancún y necesito insumos para lavandería y limpieza general." required></textarea>
+        </div>
+
+        <div class="ejemplos">
+          <span>Ejemplos rápidos:</span>
+          <button type="button" class="btn-chip" data-text="Tengo un hotel de 150 habitaciones en Cancún y necesito insumos para lavandería y limpieza general.">Hotel 150 hab. (Lavandería + Limpieza)</button>
+          <button type="button" class="btn-chip" data-text="Necesito 5 bidones de detergente, 3 de cloro, 4 desengrasantes de cocina y 10 cajas de papel higiénico.">Pedido directo por volumen</button>
+        </div>
+
+        <button type="submit" id="btnGenerar" class="btn-primary">Generar Cotización</button>
+      </form>
+      <div id="loader" class="loader hidden">Consultando catálogo con IA y calculando precios...</div>
+      <div id="errorMsg" class="error hidden"></div>
+    </section>
+
+    <section id="resultadoSection" class="card resultado-section hidden">
+      <div class="cotizacion-header">
+        <div>
+          <h2>Cotización Formal B2B</h2>
+          <p id="sucursalInfo" class="badge"></p>
+        </div>
+        <div class="fecha-info">
+          <strong>CleanHotel Distribuidora</strong><br />
+          Fecha: <span id="fechaCotizacion"></span>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Producto</th>
+            <th class="num">Cantidad</th>
+            <th class="num">Precio Unit.</th>
+            <th class="num">Importe</th>
+          </tr>
+        </thead>
+        <tbody id="tablaItems"></tbody>
+      </table>
+
+      <div class="totales-box">
+        <div class="total-row"><span>Subtotal:</span><strong id="valSubtotal">$0.00</strong></div>
+        <div class="total-row discount"><span>Descuento por volumen (10%):</span><strong id="valDescuento">-$0.00</strong></div>
+        <div class="total-row"><span>Costo de envío:</span><strong id="valEnvio">$0.00</strong></div>
+        <div class="total-row"><span>IVA (16%):</span><strong id="valIva">$0.00</strong></div>
+        <div class="total-row grand-total"><span>Total MXN:</span><strong id="valTotal">$0.00</strong></div>
+      </div>
+
+      <div class="notas-box">
+        <strong>Notas comerciales y recomendaciones:</strong>
+        <p id="notasComerciales"></p>
+      </div>
+
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()" class="btn-secondary">Imprimir / Guardar PDF</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Aviso de Transparencia:</strong> Esta cotización fue generada con Inteligencia Artificial utilizando Microsoft Foundry. Los resultados deben ser validados por personal autorizado.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
